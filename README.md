@@ -6,7 +6,7 @@ There is never enough cats!
 ## How it works
 1. Write `meow`
 2. Bot deletes your message
-3. Bot posts a random car picture
+3. Bot posts a random cat picture
 4. Bot adds a ❤️ reaction
 5. Repeat! (optional, but recommended)
 
