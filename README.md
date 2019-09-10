@@ -19,7 +19,7 @@ You need to add `bot.json` file with bot token...
 ```
 ... then use `node index.js` to run the bot.
 
-##Permissions
+## Permissions
 - Send Messages (obviously)
 - Embed links (so the image shows up in discord)
 - Manage messages (so the bot can delete all the "meow" messages)
