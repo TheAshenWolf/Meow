@@ -11,12 +11,13 @@ There is never enough cats!
 5. Repeat! (optional, but recommended)
 
 ##How to run
-You need to add `bot.json` file with bot token
+You need to add `bot.json` file with bot token...
 ```json
 {
     "token": "Your bot token"
 }
 ```
+... then use `node index.js` to run the bot.
 
 ##Permissions
 - Send Messages (obviously)
