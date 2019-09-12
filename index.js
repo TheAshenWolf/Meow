@@ -1,4 +1,4 @@
-const data = require("./raven.json");
+const data = require("./bot.json");
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const request = require('request');
