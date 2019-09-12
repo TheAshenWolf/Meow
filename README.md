@@ -4,9 +4,9 @@ There is never enough cats!
 (And I wanted a simple bot with exactly the things I personally want ^.^)
 
 ## How it works
-1. Write `meow`
+1. Write `meow` or `woof`
 2. Bot deletes your message
-3. Bot posts a random cat picture
+3. Bot posts a random cat or dog picture
 4. Bot adds a ❤️ reaction
 5. Repeat! (optional, but recommended)
 
