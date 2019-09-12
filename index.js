@@ -35,10 +35,17 @@ ${cat.url}
             });
         }
         else if (message.content.toLowerCase() == "woof") {
-            message.delete(1000);
+            message.delete(50);
             request.get('https://dog.ceo/api/breeds/image/random', {}, (error, response) => {
                 if(!error && response.statusCode == 200) {
-                    message.channel.send(JSON.parse(response.body).message);
+                    let dog = JSON.parse(response.body).message;
+                    let breedName = dog.split("/")[4];
+                    let breed = breedName.includes("-") ? breedName.split("-")[1] + " " + breedName.split("-")[0] : breedName;
+                    breed = breed.charAt(0).toUpperCase() + breed.slice(1);
+
+                    message.channel.send(`
+${dog}
+**Breed: **${breed}`);
                 } else {
                     console.log(error);
                 }
