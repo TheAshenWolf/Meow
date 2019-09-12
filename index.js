@@ -16,10 +16,19 @@ client.on('message', (message) => {
     }
     else{
         if (message.content.toLowerCase() == "meow") {
-            message.delete(1000);
-            request.get('http://thecatapi.com/api/images/get?format=src&type=png', {}, (error, response) => {
+            message.delete(50);
+            request.get('https://api.thecatapi.com/v1/images/search', {}, (error, response) => {
                 if(!error && response.statusCode == 200) {
-                    message.channel.send(response.request.uri.href);
+                    let cat = JSON.parse(response.body)[0];
+                    if(cat.breeds.length > 0){
+                        message.channel.send(`
+${cat.url}
+**Breed: **${cat.breeds[0].name}
+> ${cat.breeds[0].description}`);
+                    }
+                    else{
+                        message.channel.send(cat.url);
+                    }
                 } else {
                     console.log(error);
                 }
@@ -37,5 +46,4 @@ client.on('message', (message) => {
         }
     }
 });
-
 client.login(data.token);
