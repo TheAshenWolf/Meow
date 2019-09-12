@@ -6,6 +6,7 @@
     "author": "TheAshenWolf#0127",
     "dependencies": {
         "discord.js": "^11.5.1",
-        "nodejs": "^0.0.0"
+        "nodejs": "^0.0.0",
+        "request": "^2.88.0"
     }
 }
