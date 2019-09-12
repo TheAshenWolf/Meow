@@ -1,4 +1,4 @@
-const data = require("./bot.json");
+const data = require("./raven.json");
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const request = require('request');
@@ -17,7 +17,7 @@ client.on('message', (message) => {
     else{
         if (message.content.toLowerCase() == "meow") {
             message.delete(1000);
-            request.get('http://thecatapi.com/api/images/get?format=src&type=png', {}, (error, response, body) => {
+            request.get('http://thecatapi.com/api/images/get?format=src&type=png', {}, (error, response) => {
                 if(!error && response.statusCode == 200) {
                     message.channel.send(response.request.uri.href);
                 } else {
@@ -25,6 +25,17 @@ client.on('message', (message) => {
                 }
             });
         }
+        else if (message.content.toLowerCase() == "woof") {
+            message.delete(1000);
+            request.get('http://thedogapi.com/api/images/get', {}, (error, response) => {
+                if(!error && response.statusCode == 200) {
+                    message.channel.send(response.request.uri.href);
+                } else {
+                    console.log(error);
+                }
+            });
+        }
+        
     }
 
     
