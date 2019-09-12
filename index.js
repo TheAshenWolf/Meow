@@ -16,18 +16,34 @@ client.on('message', (message) => {
     }
     else{
         if (message.content.toLowerCase() == "meow") {
-            message.delete(1000);
-            request.get('http://thecatapi.com/api/images/get?format=src&type=png', {}, (error, response, body) => {
+            message.delete(50);
+            request.get('https://api.thecatapi.com/v1/images/search', {}, (error, response) => {
                 if(!error && response.statusCode == 200) {
-                    message.channel.send(response.request.uri.href);
+                    let cat = JSON.parse(response.body)[0];
+                    if(cat.breeds.length > 0){
+                        message.channel.send(`
+${cat.url}
+**Breed: **${cat.breeds[0].name}
+> ${cat.breeds[0].description}`);
+                    }
+                    else{
+                        message.channel.send(cat.url);
+                    }
+                } else {
+                    console.log(error);
+                }
+            });
+        }
+        else if (message.content.toLowerCase() == "woof") {
+            message.delete(1000);
+            request.get('https://dog.ceo/api/breeds/image/random', {}, (error, response) => {
+                if(!error && response.statusCode == 200) {
+                    message.channel.send(JSON.parse(response.body).message);
                 } else {
                     console.log(error);
                 }
             });
         }
     }
-
-    
 });
-
 client.login(data.token);
