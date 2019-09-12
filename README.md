@@ -25,3 +25,7 @@ You need to add `bot.json` file with bot token...
 - Manage messages (so the bot can delete all the "meow" messages)
 - Add reactions (Let's show the Love ❤️)
 - Use external emoji (currently unused, but wip)
+
+## Dependencies
+- Discord.js (main bot library)
+- Request (handles API calls)
