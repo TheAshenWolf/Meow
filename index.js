@@ -27,18 +27,15 @@ client.on('message', (message) => {
         }
         else if (message.content.toLowerCase() == "woof") {
             message.delete(1000);
-            request.get('http://thedogapi.com/api/images/get', {}, (error, response) => {
+            request.get('https://dog.ceo/api/breeds/image/random', {}, (error, response) => {
                 if(!error && response.statusCode == 200) {
-                    message.channel.send(response.request.uri.href);
+                    message.channel.send(JSON.parse(response.body).message);
                 } else {
                     console.log(error);
                 }
             });
         }
-        
     }
-
-    
 });
 
 client.login(data.token);
