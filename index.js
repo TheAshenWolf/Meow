@@ -16,6 +16,7 @@ client.on('message', (message) => {
     }
     else{
         if (message.content.toLowerCase() == "meow") {
+            client.user.setActivity('with kittens.');
             message.delete(50);
             request.get('https://api.thecatapi.com/v1/images/search', {}, (error, response) => {
                 if(!error && response.statusCode == 200) {
@@ -35,6 +36,7 @@ ${cat.url}
             });
         }
         else if (message.content.toLowerCase() == "woof") {
+            client.user.setActivity('with puppies.');
             message.delete(50);
             request.get('https://dog.ceo/api/breeds/image/random', {}, (error, response) => {
                 if(!error && response.statusCode == 200) {
